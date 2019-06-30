@@ -1,10 +1,22 @@
  function initMap(){
      var options={
-         zoom: 5,
-         center: {lat:46.2276,lng:-2.2137}
+         zoom: 8,
+         center: {lat:53.3498,lng:-6.2603},
      }
             var map = new google.maps.Map(document.getElementById("map"), options);
             
-          //  var Autocomplete = new google.maps.Autocomplete(document.getElementById("Autocomplete"))     
+            var maker = new google.maps.Marker({
+             position:  {lat:53.3498,lng:-6.2603},
+             map:map,
+             
+            })
+             
+         //   var input = document.getElementById("autocomplete"); 
+            var input = new google.maps.places.Autocomplete(document.getElementById("autocomplete"),{types: ['(cities)']});
+            google.maps.event.addListener(autocomplete, 'place_changed', function(){
+            var place = autocomplete.getPlace();
+      })
+             
+           
  }      
          
