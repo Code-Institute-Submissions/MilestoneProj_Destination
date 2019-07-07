@@ -3,13 +3,11 @@
     width: 100%;
 }
 
-#search{
-    ackground-color: #fff;
-        font-family: Roboto;
+#autocomplete{
+        background-color: #ffff;
         font-size: 15px;
         font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
+        margin-left: 12px; 
         text-overflow: ellipsis;
-        width: 400px;
+        width: 200px;
 }
