@@ -17,7 +17,15 @@
     "run": {
         "configs": {
             "@inited": "true",
-            "json()": {}
+            "json()": {
+                "set": {
+                    "command": "js/maps.js",
+                    "debug": true,
+                    "name": "set",
+                    "runner": "Node.js",
+                    "toolbar": true
+                }
+            }
         }
     },
     "welcome": {
