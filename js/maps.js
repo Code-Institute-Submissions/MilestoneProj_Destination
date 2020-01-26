@@ -57,37 +57,27 @@ function renderMap(){
             selectedTypes.push($(this).val());
         }
     });
-}
-
-    autocomplete.addListener('place_changed', function () {
-        marker.setVisible(false);
-        place = autocomplete.getPlace();
-        map:map;
-
-        if (place) {
-            map.setCenter(place.geometry.location);
-            map.setZoom(13);
-            marker.setPosition(place.geometry.location);
-            marker.setVisible(true);
 
 
-            var request = {
-                location: place.geometry.location,
-                radius: 8000,
-                types: selectedTypes
-            };
-            //   })
-            var service = new google.maps.places.PlacesService(map);
-
-            service.nearbySearch(request, callback);
-        } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(13);
-        }
-
-
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: city,
+        zoom: 13
     });
 
+            //console.log(selectedTypes);
+
+    var request = {
+        location: city.geometry.location,
+        radius: 8000,
+        types: selectedTypes
+    };
+
+    infowindow = new google.maps.InfoWindow();
+
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, callback);
+
+}
 
     function callback(results, status) {
 
@@ -101,14 +91,21 @@ function renderMap(){
         }
     }
 
-    function createrMarker(place) {
-        var placePos = place.geometry.location;
+    function createrMarker(city,icon) {
+        var placeLoc = city.geometry.location;
+
         var marker = new google.maps.Marker({
-            label: labels[labelIndex++ % labels.length],
             map: map,
-            position: place.geometry.location,
-            title: place.name
-        })
+            position: city.geometry.location,
+            icon: {
+                url: icon,
+                scaledSize: new google.maps.Size(20, 20) // pixels
+            },
+            animation: google.maps.Animation.DROP
+        });
 
-
-}
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(city.name+ '<br>' +city.vicinity);
+            infowindow.open(map, this);
+        });
+    }
