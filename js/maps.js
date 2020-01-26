@@ -34,25 +34,30 @@ function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 13,
         center: options,
-
-
     });
 
-    input = document.getElementById('autocomplete');
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+   // input = document.getElementById('autocomplete');
+   // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.bindTo('bounds', map);
-
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
+    //autocomplete.bindTo('bounds', map);
 
     var marker = new google.maps.Marker({
         position: options,
         map: map,
         title: "place"
+    })
+}
+function renderMap(){
+    var city = document.getElementById('autocomplete').value;
 
+    selectedTypes = [];
+    $('.types').each(function () {
+        if ($(this).is(':checked')) {
+            selectedTypes.push($(this).val());
+        }
     });
-
-
+}
 
     autocomplete.addListener('place_changed', function () {
         marker.setVisible(false);
@@ -66,11 +71,10 @@ function initMap() {
             marker.setVisible(true);
 
 
-
             var request = {
                 location: place.geometry.location,
                 radius: 8000,
-                types: ['tourist_attraction','museum']
+                types: selectedTypes
             };
             //   })
             var service = new google.maps.places.PlacesService(map);
@@ -85,7 +89,7 @@ function initMap() {
     });
 
 
-function callback(results, status) {
+    function callback(results, status) {
 
         if (status == google.maps.places.PlacesServiceStatus.OK) {
 
@@ -105,6 +109,6 @@ function callback(results, status) {
             position: place.geometry.location,
             title: place.name
         })
-    }
+
 
 }
