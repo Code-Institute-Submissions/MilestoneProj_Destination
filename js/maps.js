@@ -24,8 +24,8 @@ var map;
 var selectedTypes = [];
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
-let MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
-
+var legend = document.getElementById("result");
+legend.innerHTML = "";
 
 function initMap() {
 
@@ -106,8 +106,6 @@ function callback(results, status) {
 }
 
 function createrMarker(cities) {
-    var legend = document.getElementById("result");
-    legend.innerHTML = "";
 
     var marker = new google.maps.Marker({
         map: map,
@@ -123,4 +121,6 @@ function createrMarker(cities) {
 
     legend.innerHTML += "<div style = 'margin:5px'>" + marker.label + "</div>";
 }
+
+
 
