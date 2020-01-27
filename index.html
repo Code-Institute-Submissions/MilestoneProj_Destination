@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
    
     
@@ -10,16 +11,24 @@
     <title>Travel Planner</title>
 </head>
 <body>
-    <input id="autocomplete" type="text" placeholder="Enter City">
-            <div class="map">
-                <div id="map"></div>
-            </div>
-    <th>Types</th>
-    <td>
-        <div id="types_holder" style="height: 200px; overflow-y: scroll;">
-
+    <div class="card border-light mb-3" style="max-width: 25rem;">
+        <div class="card-body">
+            <p class="card-text">
+            Select a city: <input id="autocomplete" type="text" placeholder="Enter City">
+            </p>
         </div>
-        <input type="button" value="Show" id="submit" onclick="renderMap();">
+    </div>
+    <div id="map"></div>
+
+    <div class="card border-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Points of Interest</div>
+        <div class="card-body">
+            <p class="card-text"><div id="types_holder" style="height: 200px;"></div></p>
+            <input type="button" value="Show" id="submit"class="btn btn-info" onclick="renderMap();">
+        </div>
+    </div>
+
+
 <footer>
     
     
