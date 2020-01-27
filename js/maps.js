@@ -82,7 +82,7 @@ function renderMap(){
 
             var request = {
                 location: cities,
-                radius: 8000,
+                radius: 6000,
                 types: selectedTypes
             };
 
@@ -104,22 +104,20 @@ function callback(results, status) {
 
         for (var i = 0; i < results.length; i++) {
 
-            //   label: labels[i % labels.length]
+            label: labels[i % labels.length]
+
             createrMarker(results[i]);
         }
     }
 }
 
-function createrMarker(cities,icon) {
+function createrMarker(cities) {
     var placeLoc = cities.geometry.location;
 
     var marker = new google.maps.Marker({
         map: map,
         position: cities.geometry.location,
-        icon: {
-            url: icon,
-            scaledSize: new google.maps.Size(100, 20)
-        },
+        label: labels[labelIndex++ % labels.length],
         animation: google.maps.Animation.DROP
     });
 
