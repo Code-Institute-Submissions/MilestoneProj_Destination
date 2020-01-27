@@ -18,14 +18,13 @@ function capitalizeFirstLetter(string) {
 var infowindow;
 var service;
 var marker;
-var input;
 var place;
 var options;
 var map;
 var selectedTypes = [];
-
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
+let MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
 
 
 function initMap() {
@@ -78,11 +77,10 @@ function renderMap(){
                 zoom: 13
             });
 
-            //console.log(selectedTypes);
 
             var request = {
                 location: cities,
-                radius: 6000,
+                radius: 4000,
                 types: selectedTypes
             };
 
@@ -99,20 +97,17 @@ function renderMap(){
 }
 
 function callback(results, status) {
-
     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
         for (var i = 0; i < results.length; i++) {
-
-            label: labels[i % labels.length]
-
             createrMarker(results[i]);
         }
     }
 }
 
 function createrMarker(cities) {
-    var placeLoc = cities.geometry.location;
+    var legend = document.getElementById("result");
+    legend.innerHTML = "";
 
     var marker = new google.maps.Marker({
         map: map,
@@ -125,4 +120,7 @@ function createrMarker(cities) {
         infowindow.setContent(cities.name+ '<br>' +cities.vicinity);
         infowindow.open(map, this);
     });
+
+    legend.innerHTML += "<div style = 'margin:5px'>" + marker.label + "</div>";
 }
+
