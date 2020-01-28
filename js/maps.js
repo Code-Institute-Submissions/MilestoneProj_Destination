@@ -36,11 +36,11 @@ function initMap() {
         center: options,
     });
 
-     input = document.getElementById('autocomplete');
-     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+     //input = document.getElementById('autocomplete');
+    // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-    autocomplete.bindTo('bounds', map);
+   // autocomplete.bindTo('bounds', map);
 
    // var marker = new google.maps.Marker({
    //     position: options,
