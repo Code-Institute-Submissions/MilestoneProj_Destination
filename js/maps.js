@@ -17,7 +17,7 @@ function capitalizeFirstLetter(string) {
 
 var infowindow;
 var service;
-var marker;
+var marker = [];
 var place;
 var options;
 var map;
@@ -36,8 +36,8 @@ function initMap() {
         center: options,
     });
 
-    // input = document.getElementById('autocomplete');
-    // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+     //input = document.getElementById('autocomplete');
+     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
     //autocomplete.bindTo('bounds', map);
@@ -45,10 +45,12 @@ function initMap() {
     var marker = new google.maps.Marker({
         position: options,
         map: map,
-        title: "place"
+        title: place
     })
+
 }
 function renderMap(){
+    clearResults();
     var city = document.getElementById('autocomplete').value;
 
     selectedTypes = [];
@@ -98,6 +100,7 @@ function renderMap(){
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
+        clearResults();
 
         for (var i = 0; i < results.length; i++) {
             createrMarker(results[i]);
@@ -119,8 +122,32 @@ function createrMarker(cities) {
         infowindow.open(map, this);
     });
 
-    legend.innerHTML += "<div style = 'margin:5px'>" + marker.label + "</div>";
+    legend.innerHTML += "<div style = 'margin:5px'>"+ marker.label + cities.name + "</div>";
 }
+
+function clearResults() {
+    var results = document.getElementById('result');
+    while (results.childNodes[0]) {
+        results.removeChild(results.childNodes[0]);
+    }
+}
+
+function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        if (markers[i]) {
+            markers[i].setMap(null);
+        }
+    }
+    markers = [];
+}
+
+function dropMarker(i) {
+    return function() {
+        if (markers[i])
+            markers[i].setMap(map);
+    };
+}
+
 
 
 
