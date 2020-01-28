@@ -18,12 +18,10 @@ function capitalizeFirstLetter(string) {
 var infowindow;
 var service;
 var marker = [];
-var place;
 var options;
 var map;
 var typeSelected = [];
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var labelIndex = 0;
 var legend = document.getElementById("result");
 legend.innerHTML = "";
 
@@ -109,7 +107,7 @@ function callback(results, status) {
 }
 
 function createrMarker(cities) {
-
+    var labelIndex = 0;
     var marker = new google.maps.Marker({
         map: map,
         position: cities.geometry.location,
@@ -132,21 +130,7 @@ function clearResults() {
     }
 }
 
-function clearMarkers() {
-    for (var i = 0; i < markers.length; i++) {
-        if (markers[i]) {
-            markers[i].setMap(null);
-        }
-    }
-    markers = [];
-}
 
-function dropMarker(i) {
-    return function() {
-        if (markers[i])
-            markers[i].setMap(map);
-    };
-}
 
 
 
