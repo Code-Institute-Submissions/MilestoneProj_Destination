@@ -21,7 +21,7 @@ var marker = [];
 var place;
 var options;
 var map;
-var selectedTypes = [];
+var typeSelected = [];
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var labelIndex = 0;
 var legend = document.getElementById("result");
@@ -32,31 +32,31 @@ function initMap() {
     var options = {lat: 53.3498, lng: -6.2603};
 
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 13,
+        zoom: 6,
         center: options,
     });
 
-     //input = document.getElementById('autocomplete');
-     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+     input = document.getElementById('autocomplete');
+     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-    //autocomplete.bindTo('bounds', map);
+    autocomplete.bindTo('bounds', map);
 
-    var marker = new google.maps.Marker({
-        position: options,
-        map: map,
-        title: place
-    })
+   // var marker = new google.maps.Marker({
+   //     position: options,
+   //     map: map,
+   //     title: place
+   // })
 
 }
 function renderMap(){
     clearResults();
     var city = document.getElementById('autocomplete').value;
 
-    selectedTypes = [];
+    typeSelected = [];
     $('.types').each(function () {
         if ($(this).is(':checked')) {
-            selectedTypes.push($(this).val());
+            typeSelected.push($(this).val());
         }
     });
 
@@ -83,7 +83,7 @@ function renderMap(){
             var request = {
                 location: cities,
                 radius: 4000,
-                types: selectedTypes
+                types: typeSelected
             };
 
             infowindow = new google.maps.InfoWindow();
@@ -93,7 +93,7 @@ function renderMap(){
         }
         else
         {
-            alert('Please choose a type of entertainment');
+            alert('Please enter a city');
         }
     });
 }
