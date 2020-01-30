@@ -42,9 +42,10 @@
         </div>
     </div>
 
-
-
     <div id="map"></div>
+    <div class="arrow bounce">
+        <a class="fa fa-arrow-down fa-2x" href="#"></a>
+    </div>
     <hr>
     <div class="container">
         <div class="row">
@@ -71,8 +72,23 @@
 </footer>    
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTAUkVmOnSoDbF9MqTmtcjkArKVOwF7w&libraries=places&callback=initMap" async defer></script>
-            <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-            <script type="text/javascript" src="js/maps.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/maps.js"></script>
+<script>
+    $(document).ready(function(){
+        $("a").on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+                    window.location.hash = hash;
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>    
     
