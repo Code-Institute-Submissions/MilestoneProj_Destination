@@ -134,7 +134,7 @@ function createrMarker(cities) {
 
 /* Details for each place */
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(cities.name+ '<br>' +cities.vicinity + '<br>'+cities.website);
+        infowindow.setContent(cities.name+ '<br>' +cities.vicinity);
         infowindow.open(map, this);
     });
 

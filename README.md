@@ -55,7 +55,7 @@ Ux files can be found here, they are organized in the following order:
 #### Code
 ---
 The site was checked with W3C HTML and CSS validators.
-
+https://validator.w3.org/
 #### Browser
 ---
 Tested on the following browsers and devices:

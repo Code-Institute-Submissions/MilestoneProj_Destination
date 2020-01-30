@@ -14,7 +14,7 @@
     <title>Travel Planner</title>
 </head>
 <body id="scrolldown">
-<!---- NavBar--->
+<!----NavBar--->
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark ">
     <div class="social">
         <a target="_blank" href="https://www.instagram.com/luzi_andrade/" class="social-icons">
@@ -40,21 +40,21 @@
         </div>
     </div>
 
-<!---- Map--->
+<!----Map--->
     <div id="map"></div>
 <div class="arrow bounce" id="arrow">
     <a class="fas fa-chevron-down fa-5x" href="#content"></a>
 </div>
     <hr>
 
-<!---- Types and Results--->
+<!----Types and Results--->
     <div class="container" id="content">
         <div class="row">
             <div class="col card-types col-xs-6" style="max-width: 25rem;">
                 <div class="header">Points of Interest:</div>
                 <div class="card-body" id="types">
                     <p class="card-text"><div id="types_holder" style="height: 200px;"></div></p>
-                    <input type="button" value="Show" id="submit"class="btn btn-info" onclick="renderMap();">
+                    <input type="button" value="Show" id="submit" class="btn btn-info" onclick="renderMap();">
                 </div>
             </div>
             <div class="col card-results col-xs-6" id="listing">
@@ -68,20 +68,26 @@
     </div>
 
 <footer>
-    
+    <p>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                 src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                 alt="Valid CSS!" />
+        </a>
+    </p>
+    <p>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px"
+                 src="http://jigsaw.w3.org/css-validator/images/vcss"
+                 alt="Valid CSS!" />
+        </a>
+    </p>
     
 </footer>    
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTAUkVmOnSoDbF9MqTmtcjkArKVOwF7w&libraries=places&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/maps.js"></script>
-<script>
-    document.getElementById("scrolldown").addEventListener("scroll", myFunction);
-
-    function myFunction(){
-        document.getElementById("scrolldown").classList.remove("bounce")
-    }
-</script>
 </body>
 </html>    
     
