@@ -17,7 +17,7 @@ function capitalizeFirstLetter(string) {
 
 var infowindow;
 var service;
-var marker = [];
+var markers = [];
 var options;
 var map;
 var labelIndex = 0;
