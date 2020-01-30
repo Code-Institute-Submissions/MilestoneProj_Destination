@@ -107,10 +107,10 @@ function callback(results, status) {
             createrMarker(results[i]);
         }
     }
+    labelIndex = 0;
 }
 
 function createrMarker(cities) {
-    //var labelIndex = 0;
     var marker = new google.maps.Marker({
         map: map,
         position: cities.geometry.location,

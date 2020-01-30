@@ -18,3 +18,15 @@
 .card{
     border: none!important;
 }
+.card-columns {
+    column-count: 2;
+}
+.container{
+    margin-top: 25px!important;
+}
+#types_holder{
+    margin-bottom: 40px;
+}
+#types{
+    padding:0px!important;
+}

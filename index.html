@@ -19,20 +19,24 @@
         </div>
     </div>
     <div id="map"></div>
-
-    <div class="card border-light mb-3" style="max-width: 18rem;">
-        <div class="card-header">Points of Interest</div>
-        <div class="card-body">
-            <p class="card-text"><div id="types_holder" style="height: 200px;"></div></p>
-            <input type="button" value="Show" id="submit"class="btn btn-info" onclick="renderMap();">
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col card-types col-xs-6" style="max-width: 25rem;">
+                <div class="">Points of Interest</div>
+                <div class="card-body" id="types">
+                    <p class="card-text"><div id="types_holder" style="height: 200px;"></div></p>
+                    <input type="button" value="Show" id="submit"class="btn btn-info" onclick="renderMap();">
+                </div>
+            </div>
+            <div class="col card-results col-xs-6" id="listing">
+                <table id="resultsTable">
+                    <ul class="list-unstyled card-columns" id="result"></ul>
+                </table>
+            </div>
         </div>
-    </div>
-    <div class="col-xs-6" id="listing">
-        <table id="resultsTable">
-            <tbody id="result"></tbody>
-        </table>
-    </div>
 
+    </div>
 
 <footer>
     
