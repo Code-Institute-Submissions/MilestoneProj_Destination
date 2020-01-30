@@ -74,6 +74,7 @@ body{
 .arrow {
     text-align: center;
     margin: -2.3% 0;
+    transition: opacity 0.3s;
 }
 .bounce {
     -moz-animation: bounce 5s infinite;

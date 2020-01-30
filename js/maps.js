@@ -4,6 +4,21 @@ $(document).ready(function(){
 
     var types = ['bar','cafe','lodging','museum','night_club','park','restaurant'];
     var html = '';
+    var prevScrollpos = window.pageYOffset;
+
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("arrow").style.opacity = "100%";
+            //document.getElementById("arrow").style.display = "block";
+
+        } else {
+            document.getElementById("arrow").style.opacity = "0%";
+           // document.getElementById("arrow").style.display = "none";
+
+        }
+        prevScrollpos = currentScrollPos;
+    }
 
     $.each(types, function( index, value ) {
         var name = value.replace(/_/g, " ");
@@ -11,6 +26,7 @@ $(document).ready(function(){
     });
 
     $('#types_holder').html(html);
+
 });
 
 function capitalizeFirstLetter(string) {
