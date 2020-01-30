@@ -1,3 +1,5 @@
+
+/* Populating types to be searched */
 $(document).ready(function(){
 
     var types = ['bar','cafe','lodging','museum','night_club','park','restaurant'];
@@ -26,6 +28,7 @@ var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var legend = document.getElementById("result");
 legend.innerHTML = "";
 
+/* Initializing default map */
 function initMap() {
 
     var options = {lat: 53.3498, lng: -6.2603};
@@ -38,6 +41,9 @@ function initMap() {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
 
 }
+
+/* Render Map after user choose type of entertainment */
+/* Results and Markers are cleaned every time user search for a new entertiment */
 function renderMap(){
     clearResults();
     clearMarkers();
@@ -89,6 +95,7 @@ function renderMap(){
     });
 }
 
+/* Callback function getting results */
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
 
@@ -100,6 +107,7 @@ function callback(results, status) {
     labelIndex = 0;
 }
 
+/* Creating Markers for each result on the area searched */
 function createrMarker(cities) {
     var marker = new google.maps.Marker({
         map: map,
@@ -108,6 +116,7 @@ function createrMarker(cities) {
         animation: google.maps.Animation.DROP
     });
 
+/* Details for each place */
     google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(cities.name+ '<br>' +cities.vicinity + '<br>'+cities.website);
         infowindow.open(map, this);
@@ -116,6 +125,7 @@ function createrMarker(cities) {
     legend.innerHTML += "<div>"+ marker.label + "|" + cities.name + "</div>";
 }
 
+/* Cleaning Results */
 function clearResults() {
     var results = document.getElementById('result');
     while (results.childNodes[0]) {
@@ -123,7 +133,7 @@ function clearResults() {
     }
 }
 
-
+/* Cleaning Markers */
 function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
         if (markers[i]) {

@@ -13,7 +13,8 @@
     
     <title>Travel Planner</title>
 </head>
-<body>
+<body id="scrolldown">
+/* ---- NavBar*/
 <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark ">
     <div class="social">
         <a target="_blank" href="https://www.instagram.com/luzi_andrade/" class="social-icons">
@@ -39,11 +40,14 @@
         </div>
     </div>
 
+/* ---- Map*/
     <div id="map"></div>
 <div class="arrow bounce">
     <a class="fas fa-chevron-down fa-5x" href="#content"></a>
 </div>
     <hr>
+
+/* ---- Types and Results*/
     <div class="container" id="content">
         <div class="row">
             <div class="col card-types col-xs-6" style="max-width: 25rem;">
@@ -71,7 +75,13 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTAUkVmOnSoDbF9MqTmtcjkArKVOwF7w&libraries=places&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/maps.js"></script>
+<script>
+    document.getElementById("scrolldown").addEventListener("scroll", myFunction);
 
+    function myFunction(){
+        document.getElementById("scrolldown").classList.remove("bounce")
+    }
+</script>
 </body>
 </html>    
     
