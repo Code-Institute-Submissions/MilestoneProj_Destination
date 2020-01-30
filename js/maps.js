@@ -20,6 +20,7 @@ var service;
 var marker = [];
 var options;
 var map;
+var labelIndex = 0;
 var typeSelected = [];
 var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var legend = document.getElementById("result");
@@ -34,21 +35,23 @@ function initMap() {
         center: options,
     });
 
-     //input = document.getElementById('autocomplete');
+    //input = document.getElementById('autocomplete');
     // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-   // autocomplete.bindTo('bounds', map);
+    // autocomplete.bindTo('bounds', map);
 
-   // var marker = new google.maps.Marker({
-   //     position: options,
-   //     map: map,
-   //     title: place
-   // })
+    // var marker = new google.maps.Marker({
+    //     position: options,
+    //     map: map,
+    //     title: place
+    // })
 
 }
 function renderMap(){
     clearResults();
+    clearMarkers();
+    //clearMarkers();
     var city = document.getElementById('autocomplete').value;
 
     typeSelected = [];
@@ -98,7 +101,7 @@ function renderMap(){
 
 function callback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
-        clearResults();
+
 
         for (var i = 0; i < results.length; i++) {
             createrMarker(results[i]);
@@ -107,7 +110,7 @@ function callback(results, status) {
 }
 
 function createrMarker(cities) {
-    var labelIndex = 0;
+    //var labelIndex = 0;
     var marker = new google.maps.Marker({
         map: map,
         position: cities.geometry.location,
@@ -131,7 +134,11 @@ function clearResults() {
 }
 
 
-
-
-
-
+function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        if (markers[i]) {
+            markers[i].setMap(null);
+        }
+    }
+    markers = [];
+}
