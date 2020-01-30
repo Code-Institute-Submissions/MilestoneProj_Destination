@@ -35,17 +35,7 @@ function initMap() {
         center: options,
     });
 
-    //input = document.getElementById('autocomplete');
-    // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'));
-    // autocomplete.bindTo('bounds', map);
-
-    // var marker = new google.maps.Marker({
-    //     position: options,
-    //     map: map,
-    //     title: place
-    // })
 
 }
 function renderMap(){
@@ -123,7 +113,7 @@ function createrMarker(cities) {
         infowindow.open(map, this);
     });
 
-    legend.innerHTML += "<div style = 'margin:5px'>"+ marker.label + cities.name + "</div>";
+    legend.innerHTML += "<div style = 'margin:5px'>"+ marker.label + " | " +cities.name + "</div>";
 }
 
 function clearResults() {
