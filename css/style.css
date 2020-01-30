@@ -4,7 +4,7 @@ body{
 }
 
 #map {
-    min-height: 350px;
+    min-height: 450px;
     width: 100%;
 }
 /* search*/
@@ -19,9 +19,6 @@ body{
 }
 .mb-3{
     margin-bottom: 0px!important;
-}
-.search{
-    margin-top: 55px;
 }
 
 /*types*/
@@ -58,12 +55,13 @@ body{
 
 .header{
     font-size:30px;
+    font-weight: bold;
 }
 .header p{
-    margin-top: 10px;
+    margin-top: 62px;
+    margin-bottom: 0px!important;
     text-align: center;
     font-weight: bold;
     font-family: 'Dancing Script', cursive;
     font-size: 60px;
-
 }

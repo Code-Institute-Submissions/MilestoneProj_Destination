@@ -109,11 +109,11 @@ function createrMarker(cities) {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(cities.name+ '<br>' +cities.vicinity);
+        infowindow.setContent(cities.name+ '<br>' +cities.vicinity + '<br>'+cities.website);
         infowindow.open(map, this);
     });
 
-    legend.innerHTML += "<div style = 'margin:5px'>"+ marker.label + " | " +cities.name + "</div>";
+    legend.innerHTML += "<ul style = 'margin:5px'>"+ marker.label + "|" + cities.name + "</ul>";
 }
 
 function clearResults() {
