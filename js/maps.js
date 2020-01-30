@@ -113,7 +113,7 @@ function createrMarker(cities) {
         infowindow.open(map, this);
     });
 
-    legend.innerHTML += "<ul style = 'margin:5px'>"+ marker.label + "|" + cities.name + "</ul>";
+    legend.innerHTML += "<div>"+ marker.label + "|" + cities.name + "</div>";
 }
 
 function clearResults() {

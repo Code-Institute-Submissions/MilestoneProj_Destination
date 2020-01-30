@@ -27,9 +27,6 @@
         </a>
 
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 </nav>
     <div class="header">
         <p>Travel Planner</p>
@@ -43,11 +40,11 @@
     </div>
 
     <div id="map"></div>
-    <div class="arrow bounce">
-        <a class="fa fa-arrow-down fa-2x" href="#"></a>
-    </div>
+<div class="arrow bounce">
+    <a class="fas fa-chevron-down fa-5x" href="#content"></a>
+</div>
     <hr>
-    <div class="container">
+    <div class="container" id="content">
         <div class="row">
             <div class="col card-types col-xs-6" style="max-width: 25rem;">
                 <div class="header">Points of Interest:</div>
@@ -74,21 +71,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALTAUkVmOnSoDbF9MqTmtcjkArKVOwF7w&libraries=places&callback=initMap" async defer></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="js/maps.js"></script>
-<script>
-    $(document).ready(function(){
-        $("a").on('click', function(event) {
-            if (this.hash !== "") {
-                event.preventDefault();
-                var hash = this.hash;
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top
-                }, 800, function(){
-                    window.location.hash = hash;
-                });
-            }
-        });
-    });
-</script>
+
 </body>
 </html>    
     
